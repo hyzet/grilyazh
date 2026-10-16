@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Имидж-студия «Грильяж» в Ангарске: стрижки, окрашивание, причёски, наращивание, макияж и брови. 32-й микрорайон, 1. Ежедневно 9:00–20:00.">
+<style>body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Грильяж</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Marcellus&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: one-page salon landing, caramel-on-milk palette after the confection the salon is named for */
+  :root {
+    --milk: #faf6f1;
+    --cream: #f1e8dc;
+    --choco: #3b2418;
+    --choco-soft: #6b4f40;
+    --caramel: #b9782f;
+    --caramel-deep: #94591c;
+    --line: #e4d6c4;
+    --display: 'Marcellus', 'Georgia', serif;
+    --body: 'Manrope', system-ui, sans-serif;
+    --script: 'Marck Script', 'Marcellus', cursive;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--milk);
+    color: var(--choco);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; }
+  a { color: inherit; }
+
+  /* Header */
+  body::before {
+    content: ""; position: fixed; inset: 0 0 auto;
+    height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--milk);
+  }
+  header {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+    background: rgba(250, 246, 241, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding-block: 14px;
+  }
+  .logo { font-family: var(--script); font-size: 30px; line-height: 1; text-decoration: none; }
+  .nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 14px; font-weight: 500; }
+  .nav ul a { text-decoration: none; color: var(--choco-soft); }
+  .nav ul a:hover { color: var(--caramel-deep); }
+  .btn {
+    display: inline-block; text-decoration: none;
+    background: var(--choco); color: var(--milk);
+    padding: 12px 22px; border-radius: 999px;
+    font-weight: 600; font-size: 14px;
+    transition: background .2s;
+  }
+  .btn:hover, .btn:focus-visible { background: var(--caramel-deep); outline: none; }
+  .btn.ghost { background: transparent; color: var(--choco); border: 1px solid var(--choco); }
+  .btn.ghost:hover { background: var(--choco); color: var(--milk); }
+  @media (max-width: 720px) { .nav ul { display: none; } }
+
+  /* Hero */
+  .hero { padding-block: 72px 64px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+  .eyebrow { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--caramel-deep); font-weight: 600; }
+  .hero h1 { font-size: clamp(40px, 7vw, 72px); line-height: 1.05; margin-block: 14px 20px; }
+  .hero h1 em { font-style: normal; color: var(--caramel); }
+  .hero p { color: var(--choco-soft); max-width: 44ch; margin: 0 0 28px; }
+  .hero .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .rating {
+    margin-top: 28px; display: flex; align-items: center; gap: 12px;
+    font-size: 14px; color: var(--choco-soft);
+  }
+  .rating b { font-family: var(--display); font-size: 28px; color: var(--choco); font-weight: 400; }
+  .stars { color: var(--caramel); letter-spacing: 2px; }
+
+  /* Decorative caramel disc */
+  .art { position: relative; aspect-ratio: 1; max-width: 100%; }
+  .art .disc {
+    position: absolute; inset: 0; border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 30%, #e6b877 0%, transparent 45%),
+      radial-gradient(circle at 70% 75%, #7a4318 0%, transparent 55%),
+      conic-gradient(from 200deg, #c98b44, #8d5420, #d9a35f, #a2652a, #c98b44);
+    box-shadow: inset 0 0 60px rgba(59,36,24,.35), 0 30px 60px rgba(59,36,24,.18);
+  }
+  .art .disc::after {
+    content: ""; position: absolute; inset: 14%; border-radius: 50%;
+    border: 1px solid rgba(250,246,241,.45);
+  }
+  .art .label {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    font-family: var(--display); color: var(--choco); font-size: clamp(22px, 3.4vw, 34px);
+    letter-spacing: 3px; text-shadow: 0 1px 8px rgba(250,246,241,.35);
+  }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; padding-block: 48px; }
+    .art { width: 100%; max-width: 300px; margin: 0 auto; order: -1; }
+  }
+
+
+  /* Scroll intro: AI-filmed walk up to the real door, frames scrubbed by scroll; on desktop the vertical card grows to full screen, then milk-white takes over */
+  .intro { position: relative; height: 340vh; padding-block: 0; background: var(--milk); }
+  .intro-stage {
+    position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 520px;
+    overflow: hidden; background: var(--milk);
+  }
+  .intro-media {
+    position: absolute; inset: 0; overflow: hidden; background: #d8c7b6;
+    will-change: left, top, width, height, border-radius;
+  }
+  .intro-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .intro-shade {
+    position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to top, rgba(30,20,15,.7) 0%, rgba(30,20,15,0) 45%, rgba(30,20,15,.28) 100%);
+  }
+  .intro-white { position: absolute; inset: 0; background: var(--milk); opacity: 0; pointer-events: none; }
+  .intro-bar {
+    position: absolute; top: calc(18px + env(safe-area-inset-top, 0px));
+    left: max(20px, env(safe-area-inset-left, 0px)); right: max(20px, env(safe-area-inset-right, 0px));
+    display: flex; align-items: center; gap: 12px;
+    color: #fff; font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums;
+  }
+  .intro-bar .track { position: relative; flex: 1; height: 1px; background: currentColor; opacity: .35; }
+  .intro-bar .fill { position: absolute; inset: 0 auto 0 0; width: 0; background: currentColor; }
+  .intro-bar .brand { font-family: var(--script); font-size: 24px; font-weight: 400; }
+  .intro-caps {
+    position: absolute; bottom: calc(44px + env(safe-area-inset-bottom, 0px));
+    left: max(20px, env(safe-area-inset-left, 0px)); right: max(20px, env(safe-area-inset-right, 0px));
+    height: 190px; color: #fff;
+  }
+  .intro-cap { position: absolute; inset: auto 0 0 0; }
+  .intro-cap small { display: block; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; opacity: .85; margin-bottom: 10px; }
+  .intro-cap h2 { font-family: var(--display); font-size: clamp(38px, 6vw, 84px); line-height: 1.02; }
+  .intro-cap h2 .s { font-family: var(--script); }
+  .intro-cap p { margin: 14px 0 0; max-width: 34ch; font-size: 15px; opacity: .85; }
+  .intro-cap + .intro-cap { opacity: 0; }
+  .intro-hint {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    color: #fff; font-size: 12px; font-weight: 600;
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+  }
+  .intro-hint i { width: 1px; height: 18px; background: currentColor; animation: hint 1.6s ease-in-out infinite; transform-origin: top; }
+  @keyframes hint { 0%,100% { transform: scaleY(.3); } 50% { transform: scaleY(1); } }
+  .intro-logo {
+    position: absolute; inset: 0; display: grid; place-content: center; text-align: center;
+    color: var(--choco); opacity: 0; pointer-events: none;
+  }
+  .intro-logo b { font-family: var(--script); font-weight: 400; font-size: clamp(64px, 12vw, 150px); line-height: 1; }
+  .intro-logo span { font-size: 13px; letter-spacing: 6px; text-transform: uppercase; color: var(--caramel-deep); margin-top: 8px; }
+  /* desktop: vertical film card on the right, text on milk at the left */
+  @media (min-width: 821px) {
+    .intro-shade { opacity: 0; }
+    .intro-bar, .intro-hint { color: var(--choco); }
+    .intro-caps { color: var(--choco); right: 50%; bottom: 50%; transform: translateY(50%); height: 240px; }
+    .intro-cap small { color: var(--caramel-deep); opacity: 1; }
+    .intro-media { box-shadow: 0 30px 60px rgba(59,36,24,.18); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .intro { height: auto; }
+    .intro-stage { position: relative; height: 90vh; }
+    .intro-hint i { animation: none; }
+  }
+
+  /* Scroll effect: hero pins, disc spins, next sections slide over it like a curtain */
+  .hero-pin { position: relative; z-index: 1; }
+  .hero-pin .disc, .hero-pin .label, .hero-text { will-change: transform; }
+  main > section { position: relative; z-index: 2; background: var(--milk); }
+  main > section.alt { background: var(--cream); }
+  #services { border-radius: 32px 32px 0 0; box-shadow: 0 -20px 40px rgba(59,36,24,.08); }
+  @media (min-width: 821px) and (min-height: 700px) {
+    .hero-pin { position: sticky; top: 70px; }
+  }
+
+  section { padding-block: 72px; }
+  .sec-head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+  .sec-head h2 { font-size: clamp(30px, 4.5vw, 44px); }
+  .alt { background: var(--cream); }
+
+  /* Services */
+  .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .svc {
+    background: var(--milk); border: 1px solid var(--line); border-radius: 18px;
+    padding: 26px 22px; display: flex; flex-direction: column; gap: 10px; min-width: 0;
+  }
+  .svc .ico { width: 44px; height: 44px; border-radius: 50%; background: var(--cream); display: grid; place-items: center; }
+  .svc .ico svg { width: 22px; height: 22px; stroke: var(--caramel-deep); fill: none; stroke-width: 1.6; }
+  .svc h3 { font-size: 22px; }
+  .svc p { margin: 0; font-size: 14px; color: var(--choco-soft); }
+  @media (max-width: 900px) { .services { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .services { grid-template-columns: 1fr; } }
+
+  /* Prices */
+  .prices { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 56px; }
+  .pgroup h3 { font-size: 24px; margin-bottom: 8px; }
+  .prow {
+    display: flex; align-items: baseline; gap: 10px;
+    padding-block: 12px; border-bottom: 1px solid var(--line); font-size: 15px;
+  }
+  .prow span:first-child { min-width: 0; }
+  .prow .dots { flex: 1; border-bottom: 1px dotted var(--choco-soft); opacity: .35; transform: translateY(-4px); }
+  .prow .p { font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .pgroup { margin-bottom: 36px; }
+  .note { font-size: 13px; color: var(--choco-soft); }
+  @media (max-width: 720px) { .prices { grid-template-columns: 1fr; } }
+
+  /* Why */
+  .why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .why div { border-top: 2px solid var(--caramel); padding-top: 18px; }
+  .why b { display: block; font-family: var(--display); font-size: 34px; font-weight: 400; }
+  .why p { margin: 6px 0 0; color: var(--choco-soft); font-size: 15px; }
+  @media (max-width: 720px) { .why { grid-template-columns: 1fr; } }
+
+  /* Contacts */
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .card {
+    background: var(--choco); color: var(--milk); border-radius: 24px; padding: 36px;
+    display: flex; flex-direction: column; gap: 22px;
+  }
+  .card h2 { font-size: 36px; }
+  .card dl { margin: 0; display: grid; gap: 16px; }
+  .card dt { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #d9a35f; }
+  .card dd { margin: 2px 0 0; font-size: 17px; }
+  .card .btn { background: var(--caramel); align-self: flex-start; }
+  .card .btn:hover { background: #d9a35f; color: var(--choco); }
+  .card dd a { text-decoration: none; }
+  .card dd a:hover { color: #d9a35f; }
+  .card-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .card .btn.ghost-light { background: transparent; border: 1px solid rgba(250,246,241,.5); color: var(--milk); }
+  .card .btn.ghost-light:hover { background: var(--milk); color: var(--choco); }
+  .mapbox {
+    border-radius: 24px; border: 1px solid var(--line); background: var(--cream);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; gap: 14px; padding: 36px; min-height: 280px;
+  }
+  .mapbox .pin { width: 56px; height: 56px; border-radius: 50%; background: var(--caramel); display: grid; place-items: center; }
+  .mapbox .pin svg { width: 26px; height: 26px; fill: var(--milk); }
+  .mapbox p { margin: 0; color: var(--choco-soft); max-width: 30ch; }
+  @media (max-width: 720px) { .contact { grid-template-columns: 1fr; } .card { padding: 28px; } }
+
+  footer { padding-block: 32px; font-size: 13px; color: var(--choco-soft); border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+
+<section class="intro" aria-label="Вход в имидж-студию «Грильяж»">
+  <div class="intro-stage">
+    <div class="intro-media">
+      <canvas class="intro-canvas" role="img" aria-label="Камера поднимается по лестнице к двери имидж-студии «Грильяж»"></canvas>
+      <div class="intro-shade"></div>
+    </div>
+    <div class="intro-bar" aria-hidden="true">
+      <span class="brand">Грильяж</span>
+      <span class="pct">00</span>
+      <span class="track"><span class="fill"></span></span>
+      <span>вход</span>
+    </div>
+    <div class="intro-caps">
+      <div class="intro-cap">
+        <small>Ангарск · 32-й микрорайон, 1</small>
+        <h2>Имидж-студия<br><span class="s">Грильяж</span></h2>
+        <p>Стрижки, окрашивание, укладки, наращивание, макияж и брови.</p>
+      </div>
+      <div class="intro-cap">
+        <small>Каждый день с 9:00 до 20:00</small>
+        <h2>Поднимайтесь,<br>мы вас ждём</h2>
+        <p>Работаем по записи, без очередей.</p>
+      </div>
+    </div>
+    <div class="intro-hint" aria-hidden="true">Листайте вниз<i></i></div>
+    <div class="intro-white"></div>
+    <div class="intro-logo" aria-hidden="true"><b>Грильяж</b><span>имидж студия</span></div>
+  </div>
+</section>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Грильяж</a>
+    <ul>
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#prices">Цены</a></li>
+      <li><a href="#about">О салоне</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+    <a class="btn" href="#contacts">Записаться</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero-pin"><div class="wrap hero">
+    <div class="hero-text">
+      <div class="eyebrow">Имидж-студия · Ангарск</div>
+      <h1>Красота, <em>в&nbsp;которую</em> хочется возвращаться</h1>
+      <p>Стрижки, окрашивание, причёски, наращивание, макияж и брови в 32-м микрорайоне. Работаем каждый день с 9 до 20, по записи, без очередей.</p>
+      <div class="cta">
+        <a class="btn" href="#contacts">Записаться</a>
+        <a class="btn ghost" href="#prices">Смотреть цены</a>
+      </div>
+      <div class="rating">
+        <b>4.9</b>
+        <div><div class="stars">★★★★★</div>67 оценок в 2ГИС</div>
+      </div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <div class="disc"></div>
+      <div class="label">ГРИЛЬЯЖ</div>
+    </div>
+  </div></div>
+
+  <section class="alt" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Услуги</div>
+        <h2>Что мы делаем</h2>
+      </div>
+      <div class="services">
+        <div class="svc">
+          <div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg></div>
+          <h3>Стрижки</h3>
+          <p>Женские, мужские и детские. Подберём форму под тип лица и волос.</p>
+        </div>
+        <div class="svc">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/></svg></div>
+          <h3>Окрашивание</h3>
+          <p>Тонирование, мелирование, сложное окрашивание и закрашивание седины.</p>
+        </div>
+        <div class="svc">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20c4-1 6-4 6-8s2-7 6-8M8 20c4-1 6-4 6-8s2-7 6-8"/></svg></div>
+          <h3>Укладки и причёски</h3>
+          <p>На каждый день, на праздник и свадебные причёски.</p>
+        </div>
+        <div class="svc">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3v18M10 3v18M14 3c0 6 4 9 4 18M18 3c0 4 2 6 2 10"/></svg></div>
+          <h3>Наращивание волос</h3>
+          <p>Добавим длину и объём, подберём пряди под ваш цвет.</p>
+        </div>
+        <div class="svc">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
+          <h3>Лечение волос</h3>
+          <p>Восстановление и питание волос, уход после окрашивания.</p>
+        </div>
+        <div class="svc">
+          <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="6"/><path d="M8 20h8M9 16l-1 4M15 16l1 4"/></svg></div>
+          <h3>Массаж головы</h3>
+          <p>Расслабляет и улучшает состояние кожи головы.</p>
+        </div>
+        <div class="svc">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M9 3h6v6H9zM10 9l-1 12h6l-1-12"/></svg></div>
+          <h3>Макияж</h3>
+          <p>Дневной, вечерний и свадебный макияж.</p>
+        </div>
+        <div class="svc">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 13c4-5 10-6 18-3M3 17c4-3 9-4 14-2"/></svg></div>
+          <h3>Брови</h3>
+          <p>Коррекция формы и окрашивание бровей.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Прайс</div>
+        <h2>Цены</h2>
+      </div>
+      <div class="prices">
+        <div>
+          <div class="pgroup">
+            <h3>Стрижки</h3>
+            <div class="prow"><span>Женская стрижка</span><span class="dots"></span><span class="p">от 800 ₽</span></div>
+            <div class="prow"><span>Мужская стрижка</span><span class="dots"></span><span class="p">от 500 ₽</span></div>
+            <div class="prow"><span>Детская стрижка</span><span class="dots"></span><span class="p">от 400 ₽</span></div>
+            <div class="prow"><span>Чёлка</span><span class="dots"></span><span class="p">от 200 ₽</span></div>
+          </div>
+          <div class="pgroup">
+            <h3>Укладки</h3>
+            <div class="prow"><span>Укладка феном</span><span class="dots"></span><span class="p">от 600 ₽</span></div>
+            <div class="prow"><span>Вечерняя причёска</span><span class="dots"></span><span class="p">от 1 500 ₽</span></div>
+            <div class="prow"><span>Свадебная причёска</span><span class="dots"></span><span class="p">от 3 000 ₽</span></div>
+          </div>
+          <div class="pgroup">
+            <h3>Макияж и брови</h3>
+            <div class="prow"><span>Дневной макияж</span><span class="dots"></span><span class="p">от 1 500 ₽</span></div>
+            <div class="prow"><span>Вечерний и свадебный макияж</span><span class="dots"></span><span class="p">от 2 500 ₽</span></div>
+            <div class="prow"><span>Коррекция бровей</span><span class="dots"></span><span class="p">от 500 ₽</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="pgroup">
+            <h3>Окрашивание</h3>
+            <div class="prow"><span>Окрашивание в один тон</span><span class="dots"></span><span class="p">от 2 000 ₽</span></div>
+            <div class="prow"><span>Тонирование</span><span class="dots"></span><span class="p">от 1 500 ₽</span></div>
+            <div class="prow"><span>Мелирование</span><span class="dots"></span><span class="p">от 2 500 ₽</span></div>
+            <div class="prow"><span>Сложное окрашивание</span><span class="dots"></span><span class="p">от 4 000 ₽</span></div>
+          </div>
+          <div class="pgroup">
+            <h3>Лечение и уход</h3>
+            <div class="prow"><span>Восстанавливающий уход</span><span class="dots"></span><span class="p">от 1 000 ₽</span></div>
+            <div class="prow"><span>Массаж головы</span><span class="dots"></span><span class="p">от 500 ₽</span></div>
+          </div>
+          <div class="pgroup">
+            <h3>Наращивание</h3>
+            <div class="prow"><span>Наращивание волос</span><span class="dots"></span><span class="p">по консультации</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="note">Цены ориентировочные. Точная стоимость зависит от длины и густоты волос, мастер назовёт её на консультации.</p>
+    </div>
+  </section>
+
+  <section class="alt" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">О салоне</div>
+        <h2>Почему выбирают нас</h2>
+      </div>
+      <div class="why">
+        <div><b>4.9 ★</b><p>Средняя оценка по 67 отзывам клиентов в 2ГИС.</p></div>
+        <div><b>9:00–20:00</b><p>Работаем каждый день, можно прийти до работы или вечером.</p></div>
+        <div><b>По записи</b><p>Без очередей: мастер ждёт вас в назначенное время.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="wrap contact">
+      <div class="card">
+        <h2>Записаться</h2>
+        <dl>
+          <div><dt>Адрес</dt><dd>Ангарск, 32-й микрорайон, 1, 1 этаж</dd></div>
+          <div><dt>Режим работы</dt><dd>Ежедневно, 9:00–20:00</dd></div>
+          <div><dt>Телефоны</dt><dd><a href="tel:+73955633533">+7 (3955) 63-35-33</a><br><a href="tel:+79025673533">+7 (902) 567-35-33</a></dd></div>
+        </dl>
+        <div class="card-btns">
+          <a class="btn" href="https://vk.com/sk_grilliage" target="_blank" rel="noopener">Написать во ВКонтакте</a>
+          <a class="btn ghost-light" href="https://2gis.ru/firm/1548640653069386" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+        </div>
+      </div>
+      <div class="mapbox">
+        <div class="pin"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg></div>
+        <h3>32-й микрорайон, 1</h3>
+        <p>Первый этаж. Маршрут удобно построить в 2ГИС.</p>
+        <a class="btn ghost" href="https://2gis.ru/firm/1548640653069386" target="_blank" rel="noopener">Построить маршрут</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Имидж-студия «Грильяж», Ангарск</span>
+    <span>Сайт: 𝐡𝐲𝐳𝐞𝐭</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var N = 96, SRC = function (i) { return String(i + 1).padStart(3, '0') + '.jpg'; };
+  var FW = 540, FH = 960;
+  var intro = document.querySelector('.intro');
+  var stage = intro.querySelector('.intro-stage');
+  var media = intro.querySelector('.intro-media');
+  var canvas = intro.querySelector('.intro-canvas');
+  var ctx = canvas.getContext('2d');
+  var white = intro.querySelector('.intro-white');
+  var logo = intro.querySelector('.intro-logo');
+  var capsBox = intro.querySelector('.intro-caps');
+  var caps = intro.querySelectorAll('.intro-cap');
+  var bar = intro.querySelector('.intro-bar');
+  var hint = intro.querySelector('.intro-hint');
+  var fill = intro.querySelector('.fill');
+  var pct = intro.querySelector('.pct');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var desk = window.matchMedia('(min-width: 821px)');
+
+  var frames = new Array(N), loaded = new Array(N);
+  function load(i, cb) {
+    var im = new Image();
+    im.decoding = 'async';
+    im.onload = function () { loaded[i] = true; if (cb) cb(); };
+    im.src = SRC(i);
+    frames[i] = im;
+  }
+  function nearest(i) {
+    for (var d = 0; d < N; d++) {
+      if (i - d >= 0 && loaded[i - d]) return i - d;
+      if (i + d < N && loaded[i + d]) return i + d;
+    }
+    return -1;
+  }
+
+  var target = 0, cur = 0, raf = 0, lastFrame = -1, cw = 0, ch = 0;
+  function clamp(v) { return Math.min(1, Math.max(0, v)); }
+  function ease(t) { return t * t * (3 - 2 * t); }
+  function band(p, a, b) { return clamp((p - a) / (b - a)); }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function sizeCanvas(w, h) {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W = Math.round(w * dpr), H = Math.round(h * dpr);
+    if (W !== cw || H !== ch) { canvas.width = cw = W; canvas.height = ch = H; lastFrame = -1; }
+  }
+  function draw(i) {
+    var k = nearest(i);
+    if (k < 0 || (k === lastFrame)) return;
+    var im = frames[k];
+    var s = Math.max(cw / FW, ch / FH);
+    var dw = FW * s, dh = FH * s;
+    ctx.drawImage(im, (cw - dw) / 2, (ch - dh) * 0.45, dw, dh);
+    lastFrame = k;
+  }
+
+  function render(p) {
+    var w = stage.clientWidth, h = stage.clientHeight;
+    var isDesk = desk.matches;
+    var grow = isDesk ? ease(band(p, 0.55, 0.82)) : 1;
+    // card geometry: right column on desktop, full screen on phones
+    var cardH = h - 96, cardW = cardH * 9 / 16;
+    var x0 = w * 0.56 + (w * 0.44 - cardW) / 2 - w * 0.02, y0 = 48;
+    var L = lerp(x0, 0, grow), T = lerp(y0, 0, grow), W = lerp(cardW, w, grow), H = lerp(cardH, h, grow);
+    if (!isDesk) { L = 0; T = 0; W = w; H = h; }
+    media.style.left = L + 'px'; media.style.top = T + 'px';
+    media.style.width = W + 'px'; media.style.height = H + 'px';
+    media.style.borderRadius = (isDesk ? lerp(28, 0, grow) : 0) + 'px';
+    sizeCanvas(W, H);
+    lastFrame = (W !== media._w || H !== media._h) ? -1 : lastFrame;
+    media._w = W; media._h = H;
+    draw(Math.round(band(p, 0, 0.9) * (N - 1)));
+
+    white.style.opacity = ease(band(p, 0.86, 0.95));
+    var l = band(p, 0.9, 0.99);
+    logo.style.opacity = l;
+    logo.style.transform = 'translateY(' + ((1 - l) * 20) + 'px)';
+
+    var c1 = 1 - band(p, 0.2, 0.3);
+    var c2 = Math.min(band(p, 0.28, 0.38), 1 - band(p, isDesk ? 0.5 : 0.6, isDesk ? 0.6 : 0.7));
+    caps[0].style.opacity = c1; caps[0].style.transform = 'translateY(' + ((1 - c1) * -16) + 'px)';
+    caps[1].style.opacity = c2; caps[1].style.transform = 'translateY(' + ((1 - c2) * 16) + 'px)';
+    bar.style.opacity = 1 - band(p, 0.82, 0.9);
+    hint.style.opacity = Math.max(0, 1 - p * 10);
+    var n = Math.round(p * 100);
+    fill.style.width = n + '%';
+    pct.textContent = (n < 10 ? '0' : '') + n;
+  }
+  function measure() {
+    var total = intro.offsetHeight - stage.offsetHeight;
+    target = total > 0 ? clamp(-intro.getBoundingClientRect().top / total) : 0;
+  }
+  function tick() {
+    cur += (target - cur) * 0.16;
+    if (Math.abs(target - cur) < 0.0006) cur = target;
+    render(cur);
+    raf = cur !== target ? requestAnimationFrame(tick) : 0;
+  }
+  function onScroll() { measure(); if (!raf) raf = requestAnimationFrame(tick); }
+
+  // first frame right away, then the rest in order, then redraw where the reader is
+  load(0, function () {
+    lastFrame = -1; render(cur);
+    if (reduce) return;
+    var next = 1;
+    (function batch() {
+      var end = Math.min(N, next + 8), left = end - next;
+      for (; next < end; next++) load(next, function () { if (--left === 0) { lastFrame = -1; render(cur); if (next < N) batch(); } });
+    })();
+  });
+
+  measure(); cur = target; render(cur);
+  if (reduce) return;
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function () { lastFrame = -1; onScroll(); render(cur); });
+})();
+</script>
+
+
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var disc = document.querySelector('.hero-pin .disc');
+  var label = document.querySelector('.hero-pin .label');
+  var text = document.querySelector('.hero-text');
+  var ticking = false;
+  function update() {
+    var y = Math.max(0, -document.querySelector('main').getBoundingClientRect().top);
+    var vh = window.innerHeight;
+    var p = Math.min(y / vh, 1);
+    disc.style.transform = 'rotate(' + (y * 0.25) + 'deg) scale(' + (1 + p * 0.15) + ')';
+    label.style.transform = 'translateY(' + (-p * 30) + 'px)';
+    text.style.transform = 'translateY(' + (-p * 60) + 'px)';
+    text.style.opacity = String(1 - p * 0.8);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+</script>
+
+</body>
+</html>
